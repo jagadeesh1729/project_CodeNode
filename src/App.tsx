@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowRight, Users, Target, Lightbulb, Award, Globe, TrendingUp, Heart, Star, CheckCircle, FileText, Menu, X, Code, Smartphone, Cloud, Database, Shield, Zap, Building, Factory, ShoppingCart, Briefcase, GraduationCap, Calendar, ChevronRight, MapPin, Mail, Phone } from 'lucide-react';
-import OCRInvoiceProcessor from './components/OCRInvoiceProcessor';
+import { ArrowRight, Users, Award, Globe, TrendingUp, Heart, CheckCircle, FileText, Menu, X, Code, Smartphone, Cloud, Database, Shield, Zap, Building, Factory, ShoppingCart,  MapPin, Mail, Phone } from 'lucide-react';
+import InvoiceOcr from './components/InvoiceOcr';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'home' | 'industries' | 'services' | 'company' | 'careers' | 'insights' | 'ocr'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'industries' | 'services' |  'careers' |  'ocr'>('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const industries = [
@@ -72,68 +72,6 @@ function App() {
     }
   ];
 
-  const insights = [
-    {
-      title: 'The Future of AI in Business Applications',
-      excerpt: 'Exploring how artificial intelligence is reshaping business processes and creating new opportunities for innovation.',
-      date: '2024-01-15',
-      category: 'Technology',
-      readTime: '5 min read'
-    },
-    {
-      title: 'Cloud Migration Best Practices for Enterprises',
-      excerpt: 'A comprehensive guide to successful cloud migration strategies and common pitfalls to avoid.',
-      date: '2024-01-10',
-      category: 'Cloud',
-      readTime: '8 min read'
-    },
-    {
-      title: 'Cybersecurity Trends to Watch in 2024',
-      excerpt: 'Key cybersecurity trends and threats that organizations need to prepare for in the coming year.',
-      date: '2024-01-05',
-      category: 'Security',
-      readTime: '6 min read'
-    },
-    {
-      title: 'Building Scalable E-commerce Platforms',
-      excerpt: 'Technical insights into creating e-commerce solutions that can handle high traffic and growth.',
-      date: '2023-12-28',
-      category: 'E-commerce',
-      readTime: '7 min read'
-    }
-  ];
-
-  const careers = [
-    {
-      title: 'Senior Full Stack Developer',
-      department: 'Engineering',
-      location: 'San Francisco, CA',
-      type: 'Full-time',
-      description: 'Join our engineering team to build cutting-edge web applications using modern technologies.'
-    },
-    {
-      title: 'DevOps Engineer',
-      department: 'Infrastructure',
-      location: 'Remote',
-      type: 'Full-time',
-      description: 'Help us scale our infrastructure and improve our deployment processes.'
-    },
-    {
-      title: 'UX/UI Designer',
-      department: 'Design',
-      location: 'New York, NY',
-      type: 'Full-time',
-      description: 'Create beautiful and intuitive user experiences for our clients and products.'
-    },
-    {
-      title: 'Project Manager',
-      department: 'Operations',
-      location: 'Chicago, IL',
-      type: 'Full-time',
-      description: 'Lead cross-functional teams to deliver successful projects on time and within budget.'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -173,14 +111,6 @@ function App() {
                   Services
                 </button>
                 <button
-                  onClick={() => setActiveTab('company')}
-                  className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    activeTab === 'company' ? 'text-blue-600' : 'text-gray-900 hover:text-blue-600'
-                  }`}
-                >
-                  Company
-                </button>
-                <button
                   onClick={() => setActiveTab('careers')}
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
                     activeTab === 'careers' ? 'text-blue-600' : 'text-gray-900 hover:text-blue-600'
@@ -188,14 +118,7 @@ function App() {
                 >
                   Careers
                 </button>
-                <button
-                  onClick={() => setActiveTab('insights')}
-                  className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    activeTab === 'insights' ? 'text-blue-600' : 'text-gray-900 hover:text-blue-600'
-                  }`}
-                >
-                  Insights
-                </button>
+
                 <button
                   onClick={() => setActiveTab('ocr')}
                   className={`px-3 py-2 text-sm font-medium transition-colors flex items-center ${
@@ -220,7 +143,7 @@ function App() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-gray-200 py-4">
               <div className="flex flex-col space-y-2">
-                {['home', 'industries', 'services', 'company', 'careers', 'insights', 'ocr'].map((tab) => (
+                {['home', 'industries', 'services', 'careers', 'ocr'].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => {
@@ -263,19 +186,14 @@ function App() {
                     Explore Services
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </button>
-                  <button 
-                    onClick={() => setActiveTab('company')}
-                    className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-                  >
-                    Learn More
-                  </button>
+
                 </div>
               </div>
             </div>
           </section>
 
           {/* Stats Section */}
-          <section className="py-16 bg-gray-50">
+        { /* <section className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -296,17 +214,17 @@ function App() {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* Services Preview */}
           <section className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
+              {/* <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   Comprehensive technology solutions to accelerate your digital transformation
                 </p>
-              </div>
+              </div> */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {services.slice(0, 3).map((service, index) => (
                   <div key={index} className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border">
@@ -378,12 +296,7 @@ function App() {
                 >
                   Get Started
                 </button>
-                <button 
-                  onClick={() => setActiveTab('company')}
-                  className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-                >
-                  Learn More
-                </button>
+
               </div>
             </div>
           </section>
@@ -469,175 +382,7 @@ function App() {
         </div>
       )}
 
-      {activeTab === 'company' && (
-        <>
-          {/* About Section */}
-          <section className="py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h1 className="text-4xl font-bold text-gray-900 mb-6">
-                    About CodeNode
-                  </h1>
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                    Founded in 2008, CodeNode has been at the forefront of digital innovation, 
-                    helping businesses transform their operations through cutting-edge technology solutions. 
-                    We combine deep technical expertise with creative problem-solving to deliver results 
-                    that exceed expectations.
-                  </p>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                    Our team of passionate professionals brings together diverse skills and perspectives 
-                    to tackle complex challenges and create solutions that make a real difference in 
-                    our clients' success.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                      <span className="text-gray-700">Industry Leaders</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                      <span className="text-gray-700">Proven Results</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                      <span className="text-gray-700">Global Reach</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="relative">
-                  <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-8 text-white">
-                    <div className="text-center">
-                      <TrendingUp className="h-16 w-16 mx-auto mb-4 text-white" />
-                      <h3 className="text-2xl font-bold mb-4">Our Growth Story</h3>
-                      <p className="text-blue-100 leading-relaxed">
-                        From a small startup to a global technology leader, our journey has been 
-                        marked by continuous innovation and unwavering commitment to excellence.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
 
-          {/* Values Section */}
-          <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  These fundamental principles guide everything we do and shape our culture
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-center">
-                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Lightbulb className="h-8 w-8 text-blue-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Innovation</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      We constantly push boundaries and embrace new technologies to deliver 
-                      cutting-edge solutions that drive progress.
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-center">
-                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Heart className="h-8 w-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Integrity</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      We build trust through transparency, honesty, and ethical practices in 
-                      every interaction and decision we make.
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-center">
-                    <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Award className="h-8 w-8 text-purple-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Excellence</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      We strive for excellence in everything we do, from code quality to 
-                      client service, never settling for mediocrity.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Mission & Vision */}
-          <section className="py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                      <Target className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    To empower businesses with innovative technology solutions that drive growth, 
-                    efficiency, and competitive advantage in an ever-evolving digital landscape. 
-                    We are committed to delivering exceptional value through our expertise, 
-                    creativity, and unwavering dedication to client success.
-                  </p>
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-purple-500 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                      <Star className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    To be the global leader in digital transformation, recognized for our ability 
-                    to turn complex challenges into elegant solutions. We envision a future where 
-                    technology seamlessly integrates with human potential to create extraordinary 
-                    possibilities for businesses and communities worldwide.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Team Section */}
-          <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">Meet Our Leadership</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Our experienced leadership team brings decades of industry expertise and vision
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  { name: 'Sarah Johnson', role: 'CEO & Founder' },
-                  { name: 'Michael Chen', role: 'CTO' },
-                  { name: 'Emma Rodriguez', role: 'VP of Operations' },
-                  { name: 'David Thompson', role: 'VP of Engineering' },
-                  { name: 'Lisa Wang', role: 'VP of Marketing' },
-                  { name: 'James Miller', role: 'VP of Sales' }
-                ].map((member, index) => (
-                  <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                    <div className="h-64 bg-gradient-to-br from-blue-400 to-purple-500"></div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                      <p className="text-blue-600 font-medium">{member.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </>
-      )}
 
       {activeTab === 'careers' && (
         <div className="py-16">
@@ -681,33 +426,7 @@ function App() {
             {/* Job Listings */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-8">Open Positions</h2>
-              {careers.map((job, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <h3 className="text-xl font-semibold text-gray-900 mr-4">{job.title}</h3>
-                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                          {job.type}
-                        </span>
-                      </div>
-                      <div className="flex items-center text-gray-600 mb-3">
-                        <Briefcase className="h-4 w-4 mr-2" />
-                        <span className="mr-4">{job.department}</span>
-                        <MapPin className="h-4 w-4 mr-2" />
-                        <span>{job.location}</span>
-                      </div>
-                      <p className="text-gray-600 leading-relaxed">{job.description}</p>
-                    </div>
-                    <div className="mt-4 md:mt-0 md:ml-6">
-                      <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
-                        Apply Now
-                        <ChevronRight className="h-4 w-4 ml-2" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+
             </div>
 
             {/* Contact Section */}
@@ -725,95 +444,9 @@ function App() {
         </div>
       )}
 
-      {activeTab === 'insights' && (
-        <div className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Insights & Resources</h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Stay updated with the latest trends, insights, and best practices in technology and digital transformation.
-              </p>
-            </div>
-
-            {/* Featured Article */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg p-8 text-white mb-16">
-              <div className="max-w-3xl">
-                <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
-                  Featured Article
-                </span>
-                <h2 className="text-3xl font-bold mb-4">The Future of AI in Business Applications</h2>
-                <p className="text-blue-100 mb-6 leading-relaxed">
-                  Exploring how artificial intelligence is reshaping business processes and creating new opportunities for innovation across industries.
-                </p>
-                <div className="flex items-center text-blue-100 mb-6">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  <span className="mr-4">January 15, 2024</span>
-                  <span>5 min read</span>
-                </div>
-                <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                  Read Article
-                </button>
-              </div>
-            </div>
-
-            {/* Articles Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {insights.slice(1).map((article, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-500"></div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                        {article.category}
-                      </span>
-                      <span className="text-gray-500 text-sm">{article.readTime}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{article.title}</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{article.excerpt}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-gray-500 text-sm">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        {new Date(article.date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}
-                      </div>
-                      <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center">
-                        Read More
-                        <ChevronRight className="h-4 w-4 ml-1" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="mt-16 bg-gray-50 rounded-lg p-8 text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Subscribe to our newsletter to receive the latest insights, industry trends, 
-                and technology updates directly in your inbox.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {activeTab === 'ocr' && (
         <div className="py-8">
-          <OCRInvoiceProcessor />
+          <InvoiceOcr/>
         </div>
       )}
 
@@ -847,9 +480,7 @@ function App() {
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><button onClick={() => setActiveTab('company')} className="hover:text-white transition-colors">About</button></li>
                 <li><button onClick={() => setActiveTab('careers')} className="hover:text-white transition-colors">Careers</button></li>
-                <li><button onClick={() => setActiveTab('insights')} className="hover:text-white transition-colors">News</button></li>
               </ul>
             </div>
             <div>
@@ -871,9 +502,6 @@ function App() {
                 <li><a href="#" className="hover:text-white transition-colors">E-commerce</a></li>
               </ul>
             </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 CodeNode. All rights reserved.</p>
           </div>
         </div>
       </footer>
