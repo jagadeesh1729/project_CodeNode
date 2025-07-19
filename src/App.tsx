@@ -81,7 +81,7 @@ function App() {
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
                 <Globe className="h-8 w-8 text-blue-600 mr-2" />
-                <span className="text-2xl font-bold text-gray-900">CodeNode</span>
+                <span className="text-2xl font-bold text-gray-900">Aarambhly</span>
               </div>
             </div>
             <div className="hidden md:block">
@@ -286,7 +286,7 @@ function App() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
               <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto">
-                Join hundreds of companies that trust CodeNode to deliver exceptional 
+                Join hundreds of companies that trust Aarambhly to deliver exceptional 
                 technology solutions that drive real results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -457,7 +457,7 @@ function App() {
             <div>
               <div className="flex items-center mb-4">
                 <Globe className="h-8 w-8 text-blue-400 mr-2" />
-                <span className="text-xl font-bold">CodeNode</span>
+                <span className="text-xl font-bold">Aarambhly</span>
               </div>
               <p className="text-gray-400 mb-4">
                 Building tomorrow's digital solutions today.
@@ -465,11 +465,11 @@ function App() {
               <div className="space-y-2 text-gray-400">
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 mr-2" />
-                  <span>hello@codenode.com</span>
+                  <span>somnath@aarambhly.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 mr-2" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+1 (123) 456-4567</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-2" />
