@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Users, Award, Globe, TrendingUp, Heart, CheckCircle, FileText, Menu, X, Code, Smartphone, Cloud, Database, Shield, Zap, Building, Factory, ShoppingCart,  MapPin, Mail, Phone } from 'lucide-react';
 import InvoiceOcr from './components/InvoiceOcr';
+import Hero from './components/Hero';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'home' | 'industries' | 'services' |  'careers' |  'ocr'>('home');
@@ -166,8 +167,9 @@ function App() {
       {/* Main Content */}
       {activeTab === 'home' && (
         <>
+        <Hero onExploreServices={() => setActiveTab('services')}  />
           {/* Hero Section */}
-          <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
+          {/* <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl">
                 <h1 className="text-5xl font-bold mb-6 leading-tight">
@@ -190,7 +192,7 @@ function App() {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* Stats Section */}
         { /* <section className="py-16 bg-gray-50">
@@ -465,11 +467,21 @@ function App() {
               <div className="space-y-2 text-gray-400">
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 mr-2" />
-                  <span>somnath@aarambhly.com</span>
+                   <a
+      href="mailto:director@aarambhly.com"
+      className="hover:text-gray-200 underline-offset-2 hover:underline"
+    >
+      director@aarambhly.com
+    </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 mr-2" />
-                  <span>+1 (123) 456-4567</span>
+                 <a
+      href="tel:+15513289945"
+      className="hover:text-gray-200 underline-offset-2 hover:underline"
+    >
+      +1 (551) 328-9945
+    </a>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-2" />
