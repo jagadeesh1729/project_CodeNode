@@ -1,103 +1,72 @@
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, LayoutList } from 'lucide-react'; // Added LayoutList for the secondary button
 
 const Hero = ({ onExploreServices }: { onExploreServices: () => void }) => {
   return (
-    <section className="min-h-[70vh] flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+    <section className="min-h-[85vh] flex items-center bg-gray-950 text-white relative overflow-hidden">
+      
+      {/* Subtle Background Accent/Gradient - Adds Depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 opacity-95"></div>
+      
+      {/* Faux Grid or Pattern for Tech Feel (Optional but nice) */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none [background:radial-gradient(ellipse_at_top,_#2d3748_0%,_transparent_50%)]"></div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:py-32">
         
-        <p className="text-sm uppercase tracking-[0.25em] text-blue-400 mb-4">
-          Civil Engineering Automation
+        {/* Pre-Header: Stronger Color for Visibility */}
+        <p className="text-sm uppercase tracking-[0.3em] text-cyan-400 font-semibold mb-3">
+          Construction Automation
         </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
-          We help civil engineering teams<br />
-          <span className="text-blue-400">
-            eliminate repetitive manual work using AI.
+        {/* Main Header: Bigger, Bolder, More Impact */}
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+          <span className="text-white block">We help construction teams</span>
+          <span className="text-cyan-400">
+            eliminate repetitive manual work
           </span>
+          <span className="text-white block">using AI.</span>
         </h1>
 
-        <p className="text-base md:text-lg text-slate-300 max-w-3xl mb-10">
-          We automate time-consuming civil engineering tasks such as drawings analysis,
-          BOQ preparation, DPR creation, material logs, estimation sheets, safety reports, 
-          and compliance documentation — enabling faster and more accurate project execution.
+        {/* Subtext: Better Contrast and Slightly Wider */}
+        <p className="text-base md:text-xl text-slate-300 max-w-4xl mb-12 font-light">
+          We automate time-consuming construction tasks such as drawings interpretation,
+          BOQ and estimate preparation, DPR creation, material logs, progress tracking,
+          safety documentation, and compliance reporting — **enabling faster, more accurate, and more efficient project execution.**
         </p>
 
-        <div className="flex flex-wrap gap-4">
+        {/* Call-to-Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          
+          {/* Primary Button: High Contrast, Solid Blue */}
           <a
             href="mailto:director@aarambhly.com"
-            className="rounded-xl px-6 py-3 text-sm md:text-base font-medium bg-blue-400 text-slate-950 hover:bg-blue-300 transition flex items-center gap-2"
+            className="rounded-lg px-8 py-4 text-base font-bold bg-cyan-500 text-gray-950 hover:bg-cyan-400 transition transform hover:scale-[1.02] shadow-xl shadow-cyan-500/30 flex items-center justify-center gap-2"
           >
-            <Mail className="h-4 w-4" />
+            <Mail className="h-5 w-5" />
             Book a Demo
           </a>
+
+          {/* Secondary Button: Subtle, Outline Style */}
           <button 
             onClick={onExploreServices}
-            className="rounded-xl px-6 py-3 text-sm md:text-base font-medium border border-slate-600 text-slate-100 hover:bg-slate-800/60 transition flex items-center gap-2"
+            className="rounded-lg px-8 py-4 text-base font-medium border border-slate-700 text-slate-200 hover:bg-slate-800 transition flex items-center justify-center gap-2"
           >
+            <LayoutList className="h-5 w-5" />
             See Our Solutions
-            <ArrowRight className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="mt-10 text-xs md:text-sm text-slate-400">
-          We automate: BOQs, estimations, DPRs, material logs, blueprint interpretation, 
-          safety checklists, compliance reports, site documentation and more — all using AI.
+        {/* Footer/Value Bar: Better separation and alignment */}
+        <div className="mt-16 pt-6 border-t border-slate-800 text-sm text-slate-400 max-w-5xl">
+          <p className="font-medium text-slate-300 mb-2">
+            AI-Automated Processes:
+          </p>
+          <p>
+            BOQs, estimates, DPRs, material logs, blueprint interpretation, safety checklists, compliance reports, progress documentation, project records and more.
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default Hero;
-
-// import { ArrowRight, Mail } from 'lucide-react';
-
-// const Hero = ({ onExploreServices }: { onExploreServices: () => void;  }) => {
-//   return (
-//     <section className="min-h-[70vh] flex items-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-//       <div className="mx-auto max-w-6xl px-6 py-20">
-        
-//         <p className="text-sm uppercase tracking-[0.25em] text-blue-400 mb-4">
-//           AI-Powered Business Automation
-//         </p>
-
-//         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
-//           We help companies<br />
-//           <span className="text-blue-400">
-//             eliminate manual work using AI automation.
-//           </span>
-//         </h1>
-
-//         <p className="text-base md:text-lg text-slate-300 max-w-3xl mb-10">
-//           From document processing, data extraction, workflow automation, 
-//           to intelligent analysis and reporting — 
-//           we transform repetitive manual tasks into automated AI-powered solutions.
-//         </p>
-
-//         <div className="flex flex-wrap gap-4">
-//           <a
-//             href="mailto:director@aarambhly.com"
-//             className="rounded-xl px-6 py-3 text-sm md:text-base font-medium bg-blue-400 text-slate-950 hover:bg-blue-300 transition flex items-center gap-2"
-//           >
-//             <Mail className="h-4 w-4" />
-//             Book a Demo
-//           </a>
-//           <button 
-//             onClick={onExploreServices}
-//             className="rounded-xl px-6 py-3 text-sm md:text-base font-medium border border-slate-600 text-slate-100 hover:bg-slate-800/60 transition flex items-center gap-2"
-//           >
-//             See Our Solutions
-//             <ArrowRight className="h-4 w-4" />
-//           </button>
-//         </div>
-
-//         <div className="mt-10 text-xs md:text-sm text-slate-400">
-//           We automate: Document processing, data extraction, invoice verification, 
-//           workflow automation, intelligent analysis, compliance reporting, and more.
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Hero;
+export default Hero;  
